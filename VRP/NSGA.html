@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap.css">
+    <link rel="stylesheet" href="">
+    <script src="../jquery-3.4.1.js"></script>
+    <script src="../bootstrap.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    <title>Bootstrap</title>
+    <style>
+        p {
+            font-size: 18px;
+        }
+        
+        .important {
+            color: red;
+            font-weight: 600;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .ZDT {
+            width: 33.3%;
+            float: left;
+            text-align: center;
+        }
+        
+        .ZDT img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>项目说明</h1>
+        <p>
+            <br> 【问题说明】
+            <br> 通过实际案例描述，根据配送点和业务需求量，进行最优路线的计算。
+            <br> 由单一起点出发，配送多个终点后再回到起点，根据<span class="important">车辆数量，承载限制，不同车辆服务成本、运行里程限制等条件</span>选择最优运输路径，使<span class="important">成本最小化，配送订单最大化，满载率最大化</span>（如由一个配送中心向各个销售点配送货物，通过算法确定配送中心每辆车的配送方案，包括配送至哪个客户，配送量，下一个配 送目的地）。
+            <br> 【用户期望】
+            <br> 通过算法（蚁群算法、遗传算法等，可任意选择）模型构建，利用计算机语言进行开发（不限定开发语言），最终可通过设置配送点坐标或距离，各配送点业务量，车辆装载等参数，程序能自动计算出最优路线顺序。
+        </p>
+        <p>
+            【 任务要求】
+            <br> 现有一配送网络，图中 P 为配送中心，其余 A-I 为客户的接货点，所有客户的位置距离固定，各边上的数字为公里数，括号内的数字为需输送到各接货点的货物量，单位为吨。假设该配送中心有最大装载重量为 2 吨和 5 吨的两种货车，并限制车辆一次运行路线距离不超过 35 公里，每个派送点只由一辆车服务一次， 每辆车只能服务一条路线，车辆一律由配送中心出发，完成任务后返回配送中心，快递车辆配送过程中无装货，只考虑卸货。每个点卸货时间固定为 5 分钟，车辆每小时行驶距离为 10
+            千米，每个派送人员工作时间为 8 小时，请参考内容信息通过算法和程序计算需要的车辆数，最优路径及配送时间。
+        </p>
+        <img src="./images/VRP.png" style="margin: 0 auto;">
+        <p>根据以上案例，依次轮推，<span class="important">当配送点增加或减少，各配送点之间距离，货物需求量，配载车辆装载量变化时</span>，该算法及程序依然适用。</p>
+
+        <p>【技术要求与指标】
+            <br>开发要求：
+            <br>（1）可设置<span class="important">配送点个数，设置网点和各配送点及配送点与配送点之间的距离</span>；
+            <br>（2）设置<span class="important">各网点的货物量，车辆数量、车辆巡回里程限制，车辆的承载量，装卸时间，配送时长等参数</span>；
+            <br>（3）根据变量值系统可以给出最优解决方案；
+            <br>（4）必须采用一种算法应用于程序中
+        </p>
+
+        <h2>提取要求</h2>
+        <p>车辆一次运行路线`\leq`35</p>
+        <p>车辆装载重量`\leq`2或`\leq`5</p>
+        <p>配送人员工作时间`leq`8</p>
+        <p>车速10km/h</p>
+    </div>
+    <div class="container">
+        <h1>Pareto（帕雷托）理论</h1>
+        <p>即二八定律</p>
+        <p>是19世纪末20世纪初意大利经济学家帕累托发现的。他认为，在任何一组东西中，最重要的只占其中一小部分，约20%，其余80%尽管是多数，却是次要的，因此又称二八定律</p>
+        <h2>非支配解(Pareto解、不受支配解、Pareto最优解)</h2>
+        <p>在有多个目标时，由于存在目标之间的冲突和无法比较的现象，一个解在某个目标上是最好的，在其他的目标上可能是最差的。<span class="important">这些在改进任何目标函数的同时，必然会削弱至少一个其他目标函数的解&nbsp;&nbsp;称为非支配解或Pareto解。</span></p>
+        <p>一组目标函数最优解的集合称为Pareto最优集。最优集在空间上形成的曲面称为Pareto前沿面。Pareto 在1986 年提出多目标的解不受支配解(Non-dominated set)的概念，其定义为：假设任何二解<span class="important">S1及S2对所有目标而言，S1均优于S2，则我们称S1支配S2</span>，若S1没有被其他解所支配，则S1 称为<span class="important">非支配解（不受支配解），也称Pareto解。</span></p>
+        <img src="./images/pareto.png" alt="">
+        <h2>Pareto改进</h2>
+        <p> Pareto改进 (Pareto Improvement)是指一种变化，在没有使任何人境况变坏的前提下，使得至少一个人变得更好。<br>一方面，帕累托最优是指无法进行Pareto改进的余地的状态；<br>另一方面，Pareto改进是达到帕累托最优的路径和方法。</p>
+        <h2>Pareto Front</h2>
+        <p>Pareto解的集合即所谓的Pareto Front。在Pareto front中的所有解皆不受Pareto Front之外的解（以及Pareto Front 曲线以内的其它解）所支配，因此这些非支配解较其他解而言拥有最少的目标冲突，<span class="important">可提供决策者一个较佳的选择空间</span>。在某个非支配解的基础上改进任何目标函数的同时，必然会削弱至少一个其他目标函数</p>
+        <h2>Pareto Optimal（帕累托最优）</h2>
+        <p>Pareto Optimal在维基的解释是：“不可能再改善某些人的境况，而不使任何其他人受损”。<span class="important">帕雷托最优的定义：帕雷托最优是资源分配的一种状态，在不使任何人境况变坏的情况下，不可能再使某些人的处境变好。</span>帕累托最优（Pareto Optimality），也称为帕累托效率、帕累托改善，是博弈论中的重要概念，并且在经济学， 工程学和社会科学中有着广泛的应用</p>
+        <br><br>
+        <p>举例1：假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
+        <p>举例2：假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。
+        </p>
+        <p>参考博客：<a href="https://blog.csdn.net/u010180815/article/details/78994486">Pareto（帕雷托）理论</a></p>
+        <br>
+    </div>
+    <div class="container">
+        <h2>类似问题：</h2>
+        <ul>
+            <li>
+                <p>1、旅行商问题（Traveling Salesman Problem, TSP）
+                    <br> 这个问题字面上的理解是：有一bai个推销员，要到n个城市推销商品，他要找出一个包含所有n个城市的具有最短路程的环路。 TSP的历史很久，最早的描述是1759年欧拉研究的骑士周游问题，即对于国际象棋棋盘中的64个方格，走访64个方格一次且仅一次，并且最终返回到起始点。 TSP由美国RAND公司于1948年引入，该公司的声誉以及线性规划这一新方法的出现使得TSP成为一个知名且流行的问题。
+                </p>
+            </li>
+            <li>
+                <p>2、中国邮递员问题（Chinese Postman Problem CPP）<br> 同样的问题，在中国还有另一个描述方法：一个邮递员从邮局出发，到所辖街道投递邮件，最后返回邮局，如果他必须走遍所辖的每条街道至少一次，那么他应如何选择投递路线，使所走的路程最短？这个描述之所以称为中国邮递员问题， 因为是我国学者管梅古谷教授于1962年提出的这个问题并且给出了一个解法。</p>
+            </li>
+            <li>
+                <p>3、“一笔画”问题（Drawing by one line）<br> 还有一个用图论语言的描述方式：平面上有n个点，用最短的线将全部的点连起来。称为“一笔画”问题。
+                </p>
+            </li>
+            <li>
+                <p>4、配送路线问题（Route of Distribution）<br> TSP问题在物流中的描述是对应一个物流配送公司，欲将n个客户的订货沿最短路线全部送到。如何确定最短路线。 TSP问题最简单的求解方法是枚举法。它的解是多维的、多局部极值的、趋于无穷大的复杂解的空间，搜索空间是n个点的所有排列的集合，大小为（n-1）！。可以形象地把解空间看成是一个无穷大的丘陵地带，各山峰或山谷的高度即是问题的极值。求解TSP，则是在此不能穷尽的丘陵地带中攀登以达到山顶或谷底的过程。
+                </p>
+            </li>
+            <li>
+                <p>5、多回路运输问题（Vehicle Routing Problem, VRP）<br> 多回路运输问题在物流中的解释是对一系列客户的需求点设计适当的路线，使车辆有序地通过它们，在满足一定的约束条件下，如货物需求量、发送量、交发货时间、车辆载重量限制、行驶里程限制、时间限制等等，达到一定的优化目标，如里程最短、费用最少、时间最短，车队规模最少、车辆利用率高。 VRP问题和TSP问题的区别在于：客户群体的数量大，只有一辆车或一条路径满足不了客户的需求，必须是多辆交通工具以及运输工具的行车顺序两个问题的求解。相对于TSP问题，VRP问题更复杂，求解更困难，但也更接近实际情况。
+                </p>
+            </li>
+            <li>
+                <p>6、多个旅行商问题（Multiple TSP）<br> 由于限制条件的增加，TSP问题可以衍生出多个旅行商问题（MTSP），就是一个出发点，m个旅行商的TSP，即所访问的客户没有需求，车辆没有装载的限制，优化目标就是要遍历所有的客户，达到总里程最短。 VRP问题是MTSP问题的普遍化，当客户的需求不仅仅是被访问，而是有一定容积和重量的商品的装载和卸载，涉及到不同种类和型号或不同载重量车辆的调度策略时，MTSP问题转换为VRP问题。
+                </p>
+            </li>
+            <li>
+                <p>7、最近邻点法（Nearest Neighbor）<br> 这是一种用于解决TSP问题的启发式算法。方法简单，但得到的解并不十分理想，可以作为进一步优化的初始解。求解的过程一共四步：首先从零点开始，作为整个回路的起点，然后找到离刚刚加入到回路的上一节点最近的一个节点，并将其加入到回路中。重复上一步，直到所有的节点都加入到回路中，最后，将最后一个加入的节点和起点连接起来，构成了一个TSP问题的解。
+                </p>
+            </li>
+            <li>
+                <p>8、最近插入法（Nearest Insertion）<br> 最近插入法是另一个TSP问题的求解方法。它的求解过程也是4步：首先从一个节点出发，找到一个最近的节点，形成一个往返式子回路；在剩下的节点中，寻找一个离子回路中某一节点最近的节点，再在子回路中找到一个弧，使弧的两端节点到刚寻找到的最近节点的距离之和减去弧长的值最小，实际上就是把新找到的节点加入子回路以后使得增加的路程最短，就把这个节点增加到子回路中。重复以上过程，直到所有的节点都加入到子回路中。最近插入法比最近邻点法复杂，但可以得到相对比较满意的解。
+                </p>
+            </li>
+            <li>
+                <p>9、节约里程法（Saving Algorithm）<br> 节约算法是用来解决运输车辆数目不确定的VRP问题的最有名的启发式算法。它的核心思想是依次将运输问题中的两个回路合并为一个回路，每次使合并后的总运输距离减小得幅度最大，直到达到一辆车的装载限制时，再进行下一辆车的优化。优化过程分为并行方式和串行方式两种。
+                </p>
+            </li>
+            <li>
+                <p>10、扫描算法（Sweep Algorithm）<br> 它也是求解车辆数目不限制的VRP问题的启发式算法。求解过程同样是4步：以起始点为原点建立极坐标系，然后从最小角度的两个客户开始建立一个组，按逆时针方向将客户逐个加入到组中，直到客户的需求总量超出了车辆的载重定额。然后建立一个新的组，继续该过程，直到将全部客户都加入到组中
+                </p>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>ortools工具</h1>
+        <p><a href="https://blog.csdn.net/kittyzc/article/details/84143766">google的OR-Tools简介</a></p>
+        <p><a href="https://blog.csdn.net/kittyzc/article/details/84306786">routing模型之TSP问题</a></p>
+        <p>遇到问题：</p>
+        <p>运行 routing模型之TSP问题 中的代码时遇到如下报错</p>
+        <p>NotImplementedError: Wrong number or type of arguments for overloaded function 'new_RoutingModel'.</p>
+        <p>Possible C/C++ prototypes are:</p>
+        <p>operations_research::RoutingModel::RoutingModel(operations_research::RoutingIndexManager const &)</p>
+        <p>operations_research::RoutingModel::RoutingModel(operations_research::RoutingIndexManager const &,operations_research::RoutingModelParameters const &)</p>
+        <p>原因：ortools版本与网上代码不匹配</p>
+        <p>解决方法：将7.8版本降到6.10版本</p>
+        <p>查阅资料：
+            <a href="https://stackoverflow.com/questions/55061627/notimplementederror-wrong-number-or-type-of-arguments-for-overloaded-function" target="_blank">资料1</a>
+            <a href="https://github.com/google/or-tools/releases/tag/v7.0-beta.1" target="_blank">资料2</a>
+        </p>
+    </div>
+    <!-- <div class="container">
+        <h1>NSGA</h1>
+        <p>非支配排序遗传算法(Non-Dominated Sorting Genetic Algorithm，NSGA)是以基本遗传算法为基础的多目标寻优策略</p>
+        <p>
+            非支配排序遗传算法的主要技术是：
+            <br>第一，针对多目标问题适应度难以直接确定的特点，利用非支配排序算法对种群进行非支配分层，赋以虚拟适应度值，再进行接下来的遗传操作；
+            <br>第二，使用共享小生境技术，重新指定同一非支配层上的虚拟适应度，保持了 Pareto 最优解集的均匀分布
+        </p>
+        <h2>非支配排序原理</h2>
+        <p>
+            对于多个目标函数`F_1(x),F_2(x),\ldots,F_m(x)`，种群中的个体`x_i`和`x_j`
+            <br>`\forallq\in1,2,\ldots,m,F_q(x_i)\leqF_q(x_j)`，
+            <br>`\existsq\in1,2,\ldots,m,F_q(x_i)\ltF_q(x_j)`
+            <br>则称`x_i`非支配于`x_j`，即`x_i`优于`x_j`
+        </p>
+        <p>
+            如果不存在一个个体`x_j`优于`x_i`，则`x_i`标记为非支配个体
+        </p>
+    </div> -->
+    <div class="container">
+        <h1>NSGA2 ZDT1函数测试</h1>
+        <h2>NSGA流程图</h2>
+        <img src="./images/NSGA2.png" alt="" style="width: 60%;">
+        <p>参考资料：基于遗传算法的多目标寻优策略的应用研究_李莉</p>
+        <h2>二元竞赛选择</h2>
+        <p>
+            遗传算法中的竞赛选择方式是一种放回抽样，几元竞赛就是一次性在总体中取出几个个体，然后在这些个体中取出最优的个体放入保留到下一代种群的集合中。需要保存多少个体就重复此操作几次。
+        </p>
+        <h2>模拟二进制交叉算子</h2>
+        <img src="./images/SBX.png" alt="" style="width: 60%;"><br>
+        <p>参考资料：<a href="https://blog.csdn.net/u013555719/article/details/102521107">模拟二进制交叉算子详解</a></p>
+        <h2>多项式变异</h2>
+        <img src="./images/PM.png" alt="" style="width: 60%;"><br>
+        <p>参考资料：<a href="https://blog.csdn.net/xuxinrk/article/details/80363876">多项式变异</a></p>
+        <h2>ZDT1函数</h2>
+        <p>用于测试算法性能</p>
+        <img src="./images/ZDT1.png" alt="">
+        <div>
+            <div class="ZDT">
+                <img src="./images/ZDT1-True Value.png" alt="">
+                <p>真实结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT1-My Value.png" alt="">
+                <p>程序跑出来的结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT1-compare.png" alt="">
+                <p>两者比较</p>
+            </div>
+        </div>
+        <p>
+            参考资料：<a href="https://blog.csdn.net/jiang425776024/article/details/87358300">常见测试函数</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://www.cs.cinvestav.mx/~emoobook/apendix-d/apendix-d.html">ZDT函数下载</a>
+        </p>
+        <h2>ZDT2函数</h2>
+        <img src="./images/ZDT2.png" alt="">
+        <div>
+            <div class="ZDT">
+                <img src="./images/ZDT2-True Value.png" alt="">
+                <p>真实结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT2-My Value.png" alt="">
+                <p>程序跑出来的结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT2-compare.png" alt="">
+                <p>两者比较</p>
+            </div>
+        </div>
+        <h2>ZDT3函数</h2>
+        <img src="./images/ZDT3-False.png" alt="">
+        <p class="important">注：上图ZDT3函数有错，导致程序跑出来的结果与真实值存在错误。具体见下</p>
+        <div>
+            <div class="ZDT">
+                <img src="./images/ZDT3-True Value.png" alt="">
+                <p>真实结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT3-My Value.png" alt="">
+                <p>程序跑出来的结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT3-compare.png" alt="">
+                <p>两者比较</p>
+            </div>
+        </div>
+        <p>本来以为是陷入了局部极值，打算尝试使用双种群遗传算法，后发现是ZDT3函数存在错误，<span class="important">正确ZDT3函数如下</span></p>
+        <img src="./images/ZDT3-True.png" alt="">
+        <div>
+            <div class="ZDT">
+                <img src="./images/ZDT3-True Value.png" alt="">
+                <p>真实结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT3-My Value2.png" alt="">
+                <p>程序跑出来的结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT3-compare2.png" alt="">
+                <p>两者比较</p>
+            </div>
+        </div>
+        <h2>ZDT4函数</h2>
+        <img src="./images/ZDT4.png" alt="">
+        <div>
+            <div class="ZDT">
+                <img src="./images/ZDT4-True Value.png" alt="">
+                <p>真实结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT4-My Value.png" alt="">
+                <p>程序跑出来的结果</p>
+            </div>
+            <div class="ZDT">
+                <img src="./images/ZDT4-compare.png" alt="">
+                <p>两者比较</p>
+            </div>
+        </div>
+    </div>
+    <div align="center"><iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://developer.download.nvidia.com/training/courses/C-AC-01-V1/AC_CUDA_C-zh/AC_CUDA_C_1-zh.pptx" frameborder="0" width="900" height="550" allowfullscreen="true" mozallowfullscreen="true"
+            webkitallowfullscreen="true"></iframe></div>
+
+</body>
+
+</html>
