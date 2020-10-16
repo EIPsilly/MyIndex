@@ -9,7 +9,7 @@
     <script src="../jquery-3.4.1.js"></script>
     <script src="../bootstrap.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-    <title>Bootstrap</title>
+    <title>NSGA笔记</title>
     <style>
         p {
             font-size: 18px;
@@ -22,6 +22,10 @@
         
         li {
             list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
         }
         
         .ZDT {
@@ -139,14 +143,14 @@
         <h1>ortools工具</h1>
         <p><a href="https://blog.csdn.net/kittyzc/article/details/84143766">google的OR-Tools简介</a></p>
         <p><a href="https://blog.csdn.net/kittyzc/article/details/84306786">routing模型之TSP问题</a></p>
-        <p>遇到问题：</p>
-        <p>运行 routing模型之TSP问题 中的代码时遇到如下报错</p>
-        <p>NotImplementedError: Wrong number or type of arguments for overloaded function 'new_RoutingModel'.</p>
-        <p>Possible C/C++ prototypes are:</p>
-        <p>operations_research::RoutingModel::RoutingModel(operations_research::RoutingIndexManager const &)</p>
-        <p>operations_research::RoutingModel::RoutingModel(operations_research::RoutingIndexManager const &,operations_research::RoutingModelParameters const &)</p>
-        <p>原因：ortools版本与网上代码不匹配</p>
-        <p>解决方法：将7.8版本降到6.10版本</p>
+        <p>遇到问题：</br>
+            运行 routing模型之TSP问题 中的代码时遇到如下报错</br>
+            NotImplementedError: Wrong number or type of arguments for overloaded function 'new_RoutingModel'.</br>
+            Possible C/C++ prototypes are:</br>
+            operations_research::RoutingModel::RoutingModel(operations_research::RoutingIndexManager const &)</br>
+            operations_research::RoutingModel::RoutingModel(operations_research::RoutingIndexManager const &,operations_research::RoutingModelParameters const &)</br>
+            原因：ortools版本与网上代码不匹配</br>
+            解决方法：将7.8版本降到6.10版本</p>
         <p>查阅资料：
             <a href="https://stackoverflow.com/questions/55061627/notimplementederror-wrong-number-or-type-of-arguments-for-overloaded-function" target="_blank">资料1</a>
             <a href="https://github.com/google/or-tools/releases/tag/v7.0-beta.1" target="_blank">资料2</a>
@@ -272,10 +276,9 @@
                 <p>两者比较</p>
             </div>
         </div>
+        <p class="important">上述测试函数均是在变量数量为2个时进行拟合</p>
+        <p class="important">接下来尝试在变量数量多个时候进行拟合</p>
     </div>
-    <div align="center"><iframe src="https://view.officeapps.live.com/op/view.aspx?src=https://developer.download.nvidia.com/training/courses/C-AC-01-V1/AC_CUDA_C-zh/AC_CUDA_C_1-zh.pptx" frameborder="0" width="900" height="550" allowfullscreen="true" mozallowfullscreen="true"
-            webkitallowfullscreen="true"></iframe></div>
-
 </body>
 
 </html>

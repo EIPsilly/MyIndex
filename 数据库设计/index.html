@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <script src="./jquery-3.4.1.js"></script>
+    <script src="./bootstrap.js"></script>
+    <title>Bootstrap</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>SQL Server 导入northwind数据库的问题</h2>
+        <p>
+            新版本的SQL Server已经无法通过mdf,ldf导入旧版本的northwnd数据库了，但是可以用通用的sql文件进行数据库的导入
+        </p>
+        <p>
+            instnwnd.sql文件并不能直接用，需要删除如下第24行和第25行的exec语句(用--进行注释，如下)
+        </p>
+        <img src="./images/northwnd.png" alt="">
+    </div>
+</body>
+
+</html>
