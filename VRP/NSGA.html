@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap.css">
     <link rel="stylesheet" href="">
-    <script src="../jquery-3.4.1.js"></script>
-    <script src="../bootstrap.js"></script>
+    <script src="./jquery-3.4.1.js"></script>
+    <script src="./bootstrap.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
     <title>NSGA笔记</title>
     <style>
@@ -55,7 +55,7 @@
             <br> 现有一配送网络，图中 P 为配送中心，其余 A-I 为客户的接货点，所有客户的位置距离固定，各边上的数字为公里数，括号内的数字为需输送到各接货点的货物量，单位为吨。假设该配送中心有最大装载重量为 2 吨和 5 吨的两种货车，并限制车辆一次运行路线距离不超过 35 公里，每个派送点只由一辆车服务一次， 每辆车只能服务一条路线，车辆一律由配送中心出发，完成任务后返回配送中心，快递车辆配送过程中无装货，只考虑卸货。每个点卸货时间固定为 5 分钟，车辆每小时行驶距离为 10
             千米，每个派送人员工作时间为 8 小时，请参考内容信息通过算法和程序计算需要的车辆数，最优路径及配送时间。
         </p>
-        <img src="./images/VRP.png" style="margin: 0 auto;">
+        <img src="./images/VRP.png">
         <p>根据以上案例，依次轮推，<span class="important">当配送点增加或减少，各配送点之间距离，货物需求量，配载车辆装载量变化时</span>，该算法及程序依然适用。</p>
 
         <p>【技术要求与指标】
@@ -179,7 +179,7 @@
         <h1>NSGA2 ZDT1函数测试</h1>
         <h2>NSGA流程图</h2>
         <img src="./images/NSGA2.png" alt="" style="width: 60%;">
-        <p>参考资料：基于遗传算法的多目标寻优策略的应用研究_李莉</p>
+        <p>参考资料：<a href="./基于遗传算法的多目标寻优策略的应用研究_李莉.caj">基于遗传算法的多目标寻优策略的应用研究_李莉</a></p>
         <h2>二元竞赛选择</h2>
         <p>
             遗传算法中的竞赛选择方式是一种放回抽样，几元竞赛就是一次性在总体中取出几个个体，然后在这些个体中取出最优的个体放入保留到下一代种群的集合中。需要保存多少个体就重复此操作几次。
