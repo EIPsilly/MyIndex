@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="../bootstrap.css">
+    <script src="../bootstrap.js"></script>
+    <title>Bootstrap</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        #Background{
+            position: absolute;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+
+            --offsetX: 0px;
+            --offsetY: 0px;
+        }
+
+        .ImageDiv{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .BackgroundImage{
+            display: block;
+            width: 110%;
+            height: 110%;
+            object-fit: cover;
+            transform: translate(var(--offsetX),var(--offsetY));
+        }
+
+        #LoginDiv{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            padding: 35px 35px 20px 35px;
+            background-color: rgb(255,255,255,0.7);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Background">
+        <div class = "ImageDiv" id = "ImageDiv0">
+            <img src="./background0.jpg" id = "BackgroundImage0" class = "BackgroundImage">
+        </div>
+        <div class = "ImageDiv" id = "ImageDiv1" style="display: none;">
+            <img src="./background1.jpg" id = "BackgroundImage1" class = "BackgroundImage">
+        </div>
+        <div class = "ImageDiv" id = "ImageDiv2" style="display: none;">
+            <img src="./background2.jpg" id = "BackgroundImage2" class = "BackgroundImage">
+        </div>
+    </div>
+    <div id = "LoginDiv">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="name" class="col-sm-3 control-label">用户名</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name = "name" placeholder="请输入用户名">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-sm-3 control-label">密码</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="password" placeholder="请输入密码">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-4">
+                <button type="submit" class="btn btn-default">登录</button>
+              </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        const images = document.getElementsByClassName("BackgroundImage");
+        var ImgIndex = 0,ImgNum = 3;
+
+        document.getElementById("LoginDiv").addEventListener('mousemove',(e) => {
+            let width = $("#BackgroundImage" + ImgIndex).width() - window.innerWidth;
+            let percentageX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+            let offsetX = width * percentageX;
+
+            let height = $("#BackgroundImage" + ImgIndex).height() - window.innerHeight;
+            let percentageY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+            let offsetY = height * percentageY;
+
+            document.getElementById("Background").style.setProperty('--offsetX',`${offsetX}px`);
+            document.getElementById("Background").style.setProperty('--offsetY',`${offsetY}px`);
+        });
+        setInterval(function () {
+            let tmp = ImgIndex;
+            ImgIndex = (ImgIndex + 1) % ImgNum;
+            $("#ImageDiv" + ImgIndex).fadeIn(1500);
+            setTimeout(function () {
+                $("#ImageDiv" + tmp).fadeOut();
+            },1500);
+        },5000);
+    </script>
+</body>
+
+</html>
