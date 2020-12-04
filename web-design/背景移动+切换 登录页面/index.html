@@ -15,7 +15,7 @@
 
         #Background{
             position: absolute;
-            z-index: -1;
+            z-index: -2;
             width: 100vw;
             height: 100vh;
             overflow: hidden;
@@ -38,7 +38,7 @@
         .BackgroundImage{
             display: block;
             width: 110%;
-            height: 110%;
+            min-height: 110%;
             object-fit: cover;
             transform: translate(var(--offsetX),var(--offsetY));
         }
@@ -62,13 +62,16 @@
 <body>
     <div id="Background">
         <div class = "ImageDiv" id = "ImageDiv0">
-            <img src="./background0.jpg" id = "BackgroundImage0" class = "BackgroundImage">
+            <img src="./background5.jpg" id = "BackgroundImage0" class = "BackgroundImage">
         </div>
         <div class = "ImageDiv" id = "ImageDiv1" style="display: none;">
-            <img src="./background1.jpg" id = "BackgroundImage1" class = "BackgroundImage">
+            <img src="./background6.jpg" id = "BackgroundImage1" class = "BackgroundImage">
         </div>
         <div class = "ImageDiv" id = "ImageDiv2" style="display: none;">
-            <img src="./background2.jpg" id = "BackgroundImage2" class = "BackgroundImage">
+            <img src="./background7.jpg" id = "BackgroundImage2" class = "BackgroundImage">
+        </div>
+        <div class = "ImageDiv" id = "ImageDiv3" style="display: none;">
+            <img src="./background8.jpg" id = "BackgroundImage3" class = "BackgroundImage">
         </div>
     </div>
     <div id = "LoginDiv">
@@ -94,7 +97,7 @@
     </div>
     <script>
         const images = document.getElementsByClassName("BackgroundImage");
-        var ImgIndex = 0,ImgNum = 3;
+        var ImgIndex = 0,ImgNum = 4;
 
         document.getElementById("LoginDiv").addEventListener('mousemove',(e) => {
             let width = $("#BackgroundImage" + ImgIndex).width() - window.innerWidth;
@@ -111,11 +114,13 @@
         setInterval(function () {
             let tmp = ImgIndex;
             ImgIndex = (ImgIndex + 1) % ImgNum;
+            if (ImgIndex == 0) $("#ImageDiv" + ImgIndex).css("z-index",1);
+            else $("#ImageDiv0").css("z-index",0);
             $("#ImageDiv" + ImgIndex).fadeIn(1500);
             setTimeout(function () {
                 $("#ImageDiv" + tmp).css("display","none");
             },1500);
-        },5000);
+        },7000);
     </script>
 </body>
 
