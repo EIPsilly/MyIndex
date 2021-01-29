@@ -1,0 +1,558 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>笔记整理</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="编译程序的逻辑结构" class="md-header-anchor"></a><span>编译程序的逻辑结构</span></h1><h2><a name="编译程序逻辑结构上至少包含两大阶段" class="md-header-anchor"></a><span>编译程序逻辑结构上至少包含两大阶段</span></h2><ul><li><p><span>分析（Analysis）阶段</span></p><p><mark><span>理解</span></mark><span>源程序，挖掘源程序的</span><mark><span>语义</span></mark></p></li><li><p><span>综合（Synthesis）阶段</span></p><p><mark><span>生成</span></mark><span>与源程序语义上等价的</span><mark><span>目标程序</span></mark></p></li></ul><h2><a name="编译程序的前端中端和后端" class="md-header-anchor"></a><span>编译程序的前端、中端和后端</span></h2><ul><li><p><span>前端（Front End）</span></p><p><span>实现主要的分析任务</span></p><p><span>通常以第一次生成中间代码为标志</span></p></li><li><p><span>后端（Back End）,与目标机相关</span></p><p><span>实现主要的综合任务（目标代码生成和优化）</span></p><p><span>通常以从最后一级中间代码生成目标代码为标志</span></p></li><li><p><span>中端（Middle End）</span></p><p><span>实现各级中间代码上的操作（中间代码生成与优化）</span></p></li></ul><h2><a name="典型编译程序的逻辑过程" class="md-header-anchor"></a><span>典型编译程序的逻辑过程</span></h2><p><img src="笔记整理.assets/image-20210108174211851.png" referrerpolicy="no-referrer" alt="image-20210108174211851"></p><h2><a name="词法分析" class="md-header-anchor"></a><span>词法分析</span></h2><p><span>词法分析程序（Lexical Analyzer）或词法扫描程序（Scanner）的作用</span></p><ol start='' ><li><p><span>从左至右扫描构成源程序的字符流</span></p></li><li><p><span>识别出有词法意义的单词（Lexemes）</span></p></li><li><p><span>返回单词记录（由单词记号（Token）和单词的属性值组成），或词法错误信息</span></p></li><li><p><span>除以上主要任务外，常伴有如下任务</span></p><p><span>滤掉空格，跳过注释、换行符，追踪换行标志，复制出错源程序，宏展开，……也可能包含访问符号表的操作</span></p></li></ol><p><img src="笔记整理.assets/image-20210108174044863.png" referrerpolicy="no-referrer" alt="image-20210108174044863"></p><h2><a name="语法分析" class="md-header-anchor"></a><span>语法分析</span></h2><p><img src="笔记整理.assets/image-20210109151316200.png" referrerpolicy="no-referrer" alt="image-20210109151316200"></p><p>&nbsp;</p><p><span>判断w是否是文法G的语言，如果是则给出语法分析树。</span><img src="笔记整理.assets/image-20210108174151302.png" referrerpolicy="no-referrer" alt="image-20210108174151302"></p><p><mark><span>语法分析过程主导语义分析以及翻译的过程</span></mark></p><h2><a name="语义分析" class="md-header-anchor"></a><span>语义分析</span></h2><p><span>对语法分析后的程序进行语义分析,不符合语义规则时给出语义错误信息</span></p><p><img src="笔记整理.assets/image-20210108174338842.png" referrerpolicy="no-referrer" alt="image-20210108174338842"></p><h2><a name="符号表" class="md-header-anchor"></a><span>符号表</span></h2><p><span>收集每个名字的各种属性用于语义分析及后续各阶段</span></p><p><img src="笔记整理.assets/image-20210108174352813.png" referrerpolicy="no-referrer" alt="image-20210108174352813"></p><h2><a name="出错处理" class="md-header-anchor"></a><span>出错处理</span></h2><ul><li><p><span>检查错误</span></p><p><span>报告出错信息（error reporting） </span></p></li><li><p><span>排错</span></p><p><span>恢复编译工作（error recovery）</span></p></li></ul><h2><a name="中间代码生成" class="md-header-anchor"></a><span>中间代码生成</span></h2><h3><a name="抽象语法树-ast" class="md-header-anchor"></a><span>抽象语法树 AST</span></h3><p><img src="笔记整理.assets/image-20210108174450324.png" referrerpolicy="no-referrer" alt="image-20210108174450324"></p><h3><a name="三地址码--tac" class="md-header-anchor"></a><span>三地址码  TAC</span></h3><p><img src="笔记整理.assets/image-20210108174510231.png" referrerpolicy="no-referrer" alt="image-20210108174510231"></p><h2><a name="目标代码生成" class="md-header-anchor"></a><span>目标代码生成</span></h2><p><span>生成目标机代码</span></p><p><img src="笔记整理.assets/image-20210108174545918.png" referrerpolicy="no-referrer" alt="image-20210108174545918"></p><h2><a name="小结-典型编译程序的主要逻辑模块" class="md-header-anchor"></a><span>小结: 典型编译程序的主要逻辑模块</span></h2><p><img src="笔记整理.assets/image-20210108174608310.png" referrerpolicy="no-referrer" alt="image-20210108174608310"></p><h1><a name="文法基础" class="md-header-anchor"></a><span>文法基础</span></h1><h2><a name="1-最左右）推导" class="md-header-anchor"></a><span>1. 最左（右）推导</span></h2><h3><a name="最左推导" class="md-header-anchor"></a><span>最左推导</span></h3><p><img src="笔记整理.assets/image-20210108204328596.png" referrerpolicy="no-referrer" alt="image-20210108204328596"></p><p>&nbsp;</p><p><img src="笔记整理.assets/image-20210108204343373.png" referrerpolicy="no-referrer" alt="image-20210108204343373"></p><h3><a name="最右推导" class="md-header-anchor"></a><span>最右推导</span></h3><p><img src="笔记整理.assets/image-20210108204429422.png" referrerpolicy="no-referrer" alt="image-20210108204429422"></p><p><img src="笔记整理.assets/image-20210108204438459.png" referrerpolicy="no-referrer" alt="image-20210108204438459"></p><h2><a name="2-03型文法分类及其包含关系" class="md-header-anchor"></a><span>2. 0~3型文法分类及其包含关系</span></h2><p><span> 文法与语言的 Chomsky 分类方法</span></p><p><img src="笔记整理.assets/image-20210108204616628.png" referrerpolicy="no-referrer" alt="image-20210108204616628"></p><h3><a name="0-型文法" class="md-header-anchor"></a><span>0 型文法</span></h3><p><mark><span>每个产生式左边至少有一个非终结符</span></mark></p><p><img src="笔记整理.assets/image-20210108204709706.png" referrerpolicy="no-referrer" alt="image-20210108204709706"></p><h3><a name="1型文法上下文有关文法）" class="md-header-anchor"></a><span>1型文法（上下文有关文法）</span></h3><p><mark><span>每个产生式右边长度都 大于等于 左边长度（除S→ε），且S不出现在右部</span></mark></p><p><img src="笔记整理.assets/image-20210108204849939.png" referrerpolicy="no-referrer" alt="image-20210108204849939"></p><h3><a name="2型文法上下文无关文法）" class="md-header-anchor"></a><span>2型文法（上下文无关文法）</span></h3><p><mark><span>产生式左边只有一个非终结符</span></mark></p><p><img src="笔记整理.assets/image-20210108204945499.png" referrerpolicy="no-referrer" alt="image-20210108204945499"></p><h3><a name="3型文法正规文法）" class="md-header-anchor"></a><span>3型文法（正规文法）</span></h3><p><mark><span>产生式左边仅是一个非终结符</span></mark></p><p><mark><span>产生式右边只由1个终结符（或ε）后面跟0到1个非终结符</span></mark></p><p><span>能够用3型文法定义的语言称为3型语言或正规语言</span></p><p><img src="笔记整理.assets/image-20210108205145980.png" referrerpolicy="no-referrer" alt="image-20210108205145980"></p><h3><a name="文法之间的关系" class="md-header-anchor"></a><span>文法之间的关系</span></h3><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n94" cid="n94" mdtype="math_block"><div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">3型文法 \subsetneq 2型文法 \subsetneq 1型文法 \subsetneq 0型文法</script></div></div><h2><a name="3-画出语法分析树" class="md-header-anchor"></a><span>3. 画出语法分析树</span></h2><p><img src="笔记整理.assets/image-20210108210537045.png" referrerpolicy="no-referrer" alt="image-20210108210537045"></p><p><img src="笔记整理.assets/image-20210108210322031.png" referrerpolicy="no-referrer" alt="image-20210108210322031"></p><h3><a name="语法分析树的果实" class="md-header-anchor"></a><span>语法分析树的果实</span></h3><p><img src="笔记整理.assets/image-20210108210706420.png" referrerpolicy="no-referrer" alt="image-20210108210706420"></p><h3><a name="归约推导与分析树之间关系" class="md-header-anchor"></a><span>归约、推导与分析树之间关系</span></h3><p><img src="笔记整理.assets/image-20210108210743587.png" referrerpolicy="no-referrer" alt="image-20210108210743587"></p><h2><a name="4-文法的二义性" class="md-header-anchor"></a><span>4. 文法的二义性</span></h2><p><span>二义文法（ambiguous grammars）举例</span></p><p><img src="笔记整理.assets/image-20210108210837973.png" referrerpolicy="no-referrer" alt="image-20210108210837973"></p><h3><a name="二义文法概念" class="md-header-anchor"></a><span>二义文法概念</span></h3><p><img src="笔记整理.assets/image-20210108210917514.png" referrerpolicy="no-referrer" alt="image-20210108210917514"></p><h3><a name="二义性的判定" class="md-header-anchor"></a><span>二义性的判定</span></h3><p><img src="笔记整理.assets/image-20210108210926056.png" referrerpolicy="no-referrer" alt="image-20210108210926056"></p><h3><a name="消除二义性" class="md-header-anchor"></a><span>消除二义性</span></h3><p><img src="笔记整理.assets/image-20210108210935945.png" referrerpolicy="no-referrer" alt="image-20210108210935945"></p><h1><a name="正规式正规文法自动机" class="md-header-anchor"></a><span>正规式、正规文法、自动机</span></h1><h2><a name="1-dfa-和-nfa-的等价性" class="md-header-anchor"></a><span>1. DFA 和 NFA 的等价性</span></h2><p><span>定理:  L 是某个 DFA 的语言, 当且仅当 L 也是某个 NFA 的语言.</span></p><h3><a name="ε---闭包" class="md-header-anchor"></a><span>ε - 闭包</span></h3><p><img src="笔记整理.assets/image-20210108231456671.png" referrerpolicy="no-referrer" alt="image-20210108231456671"></p><p><span>个人理解：ε_CLOSURE(I)表示从 集合I 中的每一个元素出发经过 ε边能够到达的点（包括集合I）。</span></p><h3><a name="move函数" class="md-header-anchor"></a><span>move函数</span></h3><p><img src="笔记整理.assets/image-20210108231636460.png" referrerpolicy="no-referrer" alt="image-20210108231636460"></p><p><span>个人理解：状态集合 I 中的元素经过a边可以到达的点的集合</span></p><h3><a name="子集构造法" class="md-header-anchor"></a><span>子集构造法</span></h3><p><span>NFA</span><span class='math-in-toc'>$\Rightarrow$</span><span>DFA</span></p><p><img src="笔记整理.assets/image-20210108231734775.png" referrerpolicy="no-referrer" alt="image-20210108231734775"></p><p><img src="笔记整理.assets/image-20210108231737066.png" referrerpolicy="no-referrer" alt="image-20210108231737066"></p><h3><a name="子集构造法之例" class="md-header-anchor"></a><span>子集构造法之例</span></h3><p><img src="笔记整理.assets/image-20210108232803995.png" referrerpolicy="no-referrer" alt="image-20210108232803995"></p><h2><a name="2-dfa-的化简通过合并等价的或不可区别的）状态" class="md-header-anchor"></a><span>2. DFA 的化简：通过合并等价的（或不可区别的）状态</span></h2><h3><a name="dfa-状态集合上的一个等价关系定义" class="md-header-anchor"></a><span>DFA 状态集合上的一个等价关系定义</span></h3><p><img src="笔记整理.assets/image-20210108234456046.png" referrerpolicy="no-referrer" alt="image-20210108234456046"></p><h3><a name="dfa-状态集合上等价关系的另一种解释" class="md-header-anchor"></a><span>DFA 状态集合上等价关系的另一种解释</span></h3><p><img src="笔记整理.assets/image-20210108234520232.png" referrerpolicy="no-referrer" alt="image-20210108234520232"></p><h3><a name="无关状态" class="md-header-anchor"></a><span>无关状态</span></h3><p><span>	</span><span>无用状态：从开始状态不能到达的状态</span>
+<span>​</span><span>	</span><span>死状态：不能到达终止状态的状态</span></p><h3><a name="dfa的简化算法" class="md-header-anchor"></a><span>DFA的简化算法</span></h3><p><img src="笔记整理.assets/image-20210108234614499.png" referrerpolicy="no-referrer" alt="image-20210108234614499"></p><p><img src="笔记整理.assets/image-20210108234618162.png" referrerpolicy="no-referrer" alt="image-20210108234618162"></p><h2><a name="3-正规表达式" class="md-header-anchor"></a><span>3. 正规表达式</span></h2><p><img src="笔记整理.assets/image-20210109111449341.png" referrerpolicy="no-referrer" alt="image-20210109111449341"></p><h3><a name="正规表达式算符优先级" class="md-header-anchor"></a><span>正规表达式算符优先级</span></h3><p><img src="笔记整理.assets/image-20210109111608806.png" referrerpolicy="no-referrer" alt="image-20210109111608806"></p><h3><a name="举例" class="md-header-anchor"></a><span>举例</span></h3><p><img src="笔记整理.assets/image-20210109111624822.png" referrerpolicy="no-referrer" alt="image-20210109111624822"></p><h2><a name="4-正规式和正规文法的等价" class="md-header-anchor"></a><span>4. 正规式和正规文法的等价</span></h2><h3><a name="正规式转换为正规文法" class="md-header-anchor"></a><span>正规式转换为正规文法</span></h3><p><span>tips:未在考试重点</span></p><p><img src="笔记整理.assets/image-20210109111737097.png" referrerpolicy="no-referrer" alt="image-20210109111737097"></p><p><span>个人理解：第二条可以简化成如下</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n147" cid="n147" mdtype="math_block"><div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">对于形如A\rightarrow x^*y 的正规产生式改写为 A\rightarrow xA|y</script></div></div><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210109111756312.png" referrerpolicy="no-referrer" alt="image-20210109111756312"></p><h3><a name="正规文法转换为正规式" class="md-header-anchor"></a><span>正规文法转换为正规式</span></h3><p><img src="笔记整理.assets/image-20210109111748465.png" referrerpolicy="no-referrer" alt="image-20210109111748465"></p><h2><a name="5-正规式与有穷自动机的等价" class="md-header-anchor"></a><span>5. 正规式与有穷自动机的等价</span></h2><p><img src="笔记整理.assets/image-20210109131143592.png" referrerpolicy="no-referrer" alt="image-20210109131143592"></p><h3><a name="从正规表达式构造等价的ε---nfa" class="md-header-anchor"></a><span>从正规表达式构造等价的ε - NFA</span></h3><p><img src="笔记整理.assets/image-20210109131549708.png" referrerpolicy="no-referrer" alt="image-20210109131549708"></p><p><img src="笔记整理.assets/image-20210109131553457.png" referrerpolicy="no-referrer" alt="image-20210109131553457"></p><p><img src="笔记整理.assets/image-20210109131556063.png" referrerpolicy="no-referrer" alt="image-20210109131556063"></p><p><img src="笔记整理.assets/image-20210109131558030.png" referrerpolicy="no-referrer" alt="image-20210109131558030"></p><p><img src="笔记整理.assets/image-20210109131604959.png" referrerpolicy="no-referrer" alt="image-20210109131604959"></p><p><span>典型正规表达式对应的状态转换图</span></p><p><img src="笔记整理.assets/image-20210109131619171.png" referrerpolicy="no-referrer" alt="image-20210109131619171"></p><h3><a name="从有限自动机m构造等价的正规表达式r" class="md-header-anchor"></a><span>从有限自动机M构造等价的正规表达式r</span></h3><p><img src="笔记整理.assets/image-20210109131659281.png" referrerpolicy="no-referrer" alt="image-20210109131659281"></p><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210109131708152.png" referrerpolicy="no-referrer" alt="image-20210109131708152"></p><h2><a name="6-正规文法与构造有穷自动机的等价" class="md-header-anchor"></a><span>6. 正规文法与构造有穷自动机的等价</span></h2><h3><a name="有穷自动机mrightarrow正规文法g" class="md-header-anchor"></a><span>有穷自动机M</span><span class='math-in-toc'>$\Rightarrow$</span><span>正规文法G</span></h3><p><img src="笔记整理.assets/image-20210109133345302.png" referrerpolicy="no-referrer" alt="image-20210109133345302"></p><h3><a name="正规文法g构造有穷自动机m" class="md-header-anchor"></a><span>正规文法G构造有穷自动机M</span></h3><p><img src="笔记整理.assets/image-20210109133422363.png" referrerpolicy="no-referrer" alt="image-20210109133422363"></p><h1><a name="ll1自顶向下" class="md-header-anchor"></a><span>LL(1)自顶向下</span></h1><h2><a name="1-消除直接）左递归" class="md-header-anchor"></a><span>1. 消除（直接）左递归</span></h2><p><span>tips：间接左递归不在考点</span></p><p><span>左递归消除规则</span></p><p><img src="笔记整理.assets/image-20210109160250024.png" referrerpolicy="no-referrer" alt="image-20210109160250024"></p><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210109160554865.png" referrerpolicy="no-referrer" alt="image-20210109160554865"></p><h2><a name="2-提取左公因子" class="md-header-anchor"></a><span>2. 提取左公因子</span></h2><p><span>提取左公因子规则</span></p><p><img src="笔记整理.assets/image-20210109160612656.png" referrerpolicy="no-referrer" alt="image-20210109160612656"></p><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210109160719183.png" referrerpolicy="no-referrer" alt="image-20210109160719183"></p><h2><a name="3-select集合" class="md-header-anchor"></a><span>3. Select集合</span></h2><h3><a name="first-集合" class="md-header-anchor"></a><span>First 集合</span></h3><p><img src="笔记整理.assets/image-20210109160750370.png" referrerpolicy="no-referrer" alt="image-20210109160750370"></p><p><span>个人理解：经过任意次推导得到的句型中的第一个终结符</span></p><h4><a name="计算-first-集合" class="md-header-anchor"></a><span>计算 First 集合</span></h4><p><img src="笔记整理.assets/image-20210109160858942.png" referrerpolicy="no-referrer" alt="image-20210109160858942"></p><p><span>个人理解：</span></p><ol start='' ><li><span>终结符或ε的first集合为自己</span></li><li><span>产生式右部为空，即</span><span class='math-in-toc'>$A \rightarrow \varepsilon$</span><span> First(A)并上</span><span class='math-in-toc'>$\varepsilon$</span></li><li><span>产生式右部非空，则First（左部）需并上First（右部）</span></li><li><span>First(</span><span class='math-in-toc'>$Y_1Y_2...Y_k$</span><span>)。找到第一个First集合不包含</span><span class='math-in-toc'>$\varepsilon$</span><span>的元素</span><span class='math-in-toc'>$Y_i$</span><span>。将前面所有元素的First集合并起来，减去</span><span class='math-in-toc'>$\{\varepsilon\}$</span><span>。如果不存在则所有元素的First集合并起来</span></li></ol><h3><a name="follow-集合后继符号集）" class="md-header-anchor"></a><span>Follow 集合（后继符号集）</span></h3><p><img src="笔记整理.assets/image-20210109161724804.png" referrerpolicy="no-referrer" alt="image-20210109161724804"></p><p><span>个人理解：Follow(A)求A后面可能字符串的First集合</span></p><h4><a name="计算-follow-集合" class="md-header-anchor"></a><span>计算 Follow 集合</span></h4><p><img src="笔记整理.assets/image-20210109161737494.png" referrerpolicy="no-referrer" alt="image-20210109161737494"></p><p><span>个人理解：如果</span><span class='math-in-toc'>$\beta$</span><span>为</span><span class='math-in-toc'>$\varepsilon$</span><span>，即A后面无内容，则Follow(A)需并上Follow(X)</span></p><h3><a name="select集预测集合）predictive-set）" class="md-header-anchor"></a><span>Select集（预测集合）（Predictive Set）</span></h3><p><img src="笔记整理.assets/image-20210109165331367.png" referrerpolicy="no-referrer" alt="image-20210109165331367"></p><p>&nbsp;</p><h2><a name="4判断是否为ll1文法" class="md-header-anchor"></a><span>4.判断是否为LL(1)文法</span></h2><p><img src="笔记整理.assets/image-20210109165434733.png" referrerpolicy="no-referrer" alt="image-20210109165434733"></p><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210109170101816.png" referrerpolicy="no-referrer" alt="image-20210109170101816"></p><h2><a name="5-画出预测分析表" class="md-header-anchor"></a><span>5. 画出预测分析表</span></h2><h3><a name="表驱动-ll1）分析程序" class="md-header-anchor"></a><span>表驱动 LL（1）分析程序</span></h3><p><span>工作原理：借助于预测分析表和一个下推栈</span></p><p><span>初始时，下推栈只包含#；首先将文法开始符号入栈；之后依如下步骤：</span></p><ol start='' ><li><span>若栈顶为终结符，则判断当前读入的单词是否与该终结符相匹配，若匹配，再读取下一单词继续分析；不匹配，则进行出错处理</span></li><li><span>若栈顶为非终结符，则根据该非终结符和当前输入单词查预测分析表，若相应表项中是产生式（唯一的），则将此非终结符出栈，并把产生式右部符号从右至左入栈；若表项为空，则进行出错处理</span></li><li><span>重复（1）和（2），直到栈顶为 # 同时输入也遇到结束符 # 时，分析结束</span></li></ol><h3><a name="预测分析表" class="md-header-anchor"></a><span>预测分析表</span></h3><ul><li><span>表驱动分析程序需要的</span><mark><span>二维表M</span></mark></li><li><span>表的每</span><mark><span>一行A</span></mark><span> 对应一个</span><mark><span>非终结符</span></mark></li><li><span>表的每</span><mark><span>一列a</span></mark><span>对应某个</span><mark><span>终结符</span></mark><span>或输入</span><mark><span>结束符 #</span></mark></li><li><span>表中的项 </span><mark><span>M(A,a)</span></mark><span> 表示</span><mark><span>栈顶为A，下一个输入符号为a</span></mark><span>时，可选的产生式集合</span></li><li><span>对于LL（1）文法，可以构造出一个 M(A,a) 最 多只包含</span><mark><span>一个产生式</span></mark><span>的预测分析表，可称之为</span><mark><span>LL（1）分析表</span></mark></li><li><span>M(A,a) 不含产生式时，对应一个出错位置</span></li></ul><h3><a name="预测分析表的构造算法" class="md-header-anchor"></a><span>预测分析表的构造算法</span></h3><p><img src="笔记整理.assets/image-20210109171704515.png" referrerpolicy="no-referrer" alt="image-20210109171704515"></p><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210109171733216.png" referrerpolicy="no-referrer" alt="image-20210109171733216"></p><h2><a name="6-对输入块的分析过程" class="md-header-anchor"></a><span>6. 对输入块的分析过程</span></h2><p><img src="笔记整理.assets/image-20210109171754968.png" referrerpolicy="no-referrer" alt="image-20210109171754968"></p><h1><a name="lr0" class="md-header-anchor"></a><span>LR(0)</span></h1><h2><a name="1-增广文法" class="md-header-anchor"></a><span>1. 增广文法</span></h2><p><span>增广文法：使开始符号不会出现在产生式的右部</span></p><p><img src="笔记整理.assets/image-20210109223926381.png" referrerpolicy="no-referrer" alt="image-20210109223926381"></p><h2><a name="2-画出活前缀的dfa" class="md-header-anchor"></a><span>2. 画出活前缀的DFA</span></h2><h3><a name="活前缀" class="md-header-anchor"></a><span>活前缀</span></h3><p><img src="笔记整理.assets/image-20210109223934956.png" referrerpolicy="no-referrer" alt="image-20210109223934956"></p><p><span>活前缀与句柄的关系：一个活前缀是某一右句型的前缀，它不超过该右句型的某个句柄</span></p><ul><li><span>活前缀已含有该句柄的全部符号，表明该句柄对应的产生式 A→α的右部α已出现在栈顶</span></li><li><span>活前缀只含该句柄的一部分符号，表明该句柄对应的产生式 A→α1α2 的右部子串α1 已出现在栈顶，期待从输入串中看到α2 推导出的符号串</span></li><li><span>活前缀不含有该句柄的任何符号，此时期待从输入串中看到该句柄对应的产生式 A→α的右部所推导出的符号串</span></li></ul><p><span>活前缀集合的归纳定义：</span></p><p><img src="笔记整理.assets/image-20210109224430186.png" referrerpolicy="no-referrer" alt="image-20210109224430186"></p><h3><a name="lr0）fsm-的状态" class="md-header-anchor"></a><span>LR（0）FSM 的状态</span></h3><p><span>LR（0）FSM 的状态是一个特殊的 LR（0）项目（item）集</span></p><p><span>一个LR（0）项目是在右端某一位置有圆点的产生式</span></p><p><img src="笔记整理.assets/image-20210109224927618.png" referrerpolicy="no-referrer" alt="image-20210109224927618"></p><p><span>LR（0）项目解析</span></p><p><img src="笔记整理.assets/image-20210109225030085.png" referrerpolicy="no-referrer" alt="image-20210109225030085"></p><h3><a name="计算lr0）项目集-i-的闭包-closurei的算法" class="md-header-anchor"></a><span>计算LR（0）项目集 I 的闭包 CLOSURE(I)的算法</span></h3><p><img src="笔记整理.assets/image-20210109225200356.png" referrerpolicy="no-referrer" alt="image-20210109225200356"></p><p><span>圆点在产生式右部字符串的某个非终结符前，且该非终结符可以进行推导，则圆点也在该终结符推导出的式子的前面</span></p><h3><a name="lr0）fsm-的初态" class="md-header-anchor"></a><span>LR（0）FSM 的初态</span></h3><p><img src="笔记整理.assets/image-20210109225244418.png" referrerpolicy="no-referrer" alt="image-20210109225244418"></p><p><span>例子</span></p><p><img src="笔记整理.assets/image-20210109225255624.png" referrerpolicy="no-referrer" alt="image-20210109225255624"></p><h3><a name="lr0）fsm-的状态转移函数" class="md-header-anchor"></a><span>LR（0）FSM 的状态转移函数</span></h3><p><img src="笔记整理.assets/image-20210109225313225.png" referrerpolicy="no-referrer" alt="image-20210109225313225"></p><h3><a name="计算-lr0）fsm-的所有状态的集合" class="md-header-anchor"></a><span>计算 LR（0）FSM 的所有状态的集合</span></h3><p><img src="笔记整理.assets/image-20210109225925463.png" referrerpolicy="no-referrer" alt="image-20210109225925463"></p><p>&nbsp;</p><p><span>LR（0）FSM 的构造说明</span></p><p><span>同一状态的项目集中,若不同项目其后继符号相同时, 后继状态也相同</span></p><p><span>不同状态的项目集中,若出现相同的项目时,则后继状态也相同. （如后图状态I2和I4同有项目A→.cA故经c均到达状态I2 ，状态I2和I4也同有项目A→.d故经d均到达状态I10 ）</span></p><h3><a name="lr0）fsm-的构造举例" class="md-header-anchor"></a><span>LR（0）FSM 的构造举例</span></h3><p><img src="笔记整理.assets/image-20210109230145707.png" referrerpolicy="no-referrer" alt="image-20210109230145707"></p><h3><a name="lr0）fsm-的语言" class="md-header-anchor"></a><span>LR（0）FSM 的语言</span></h3><p><img src="笔记整理.assets/image-20210109233532984.png" referrerpolicy="no-referrer" alt="image-20210109233532984"></p><h2><a name="3-判断是否为lr0" class="md-header-anchor"></a><span>3. 判断是否为LR(0)</span></h2><h3><a name="lr0）文法判断" class="md-header-anchor"></a><span>LR（0）文法判断</span></h3><p><img src="笔记整理.assets/image-20210109230719441.png" referrerpolicy="no-referrer" alt="image-20210109230719441"></p><h2><a name="4-action表goto表" class="md-header-anchor"></a><span>4. action表，goto表</span></h2><h3><a name="lr分析表" class="md-header-anchor"></a><span>LR分析表</span></h3><h4><a name="action表" class="md-header-anchor"></a><span>ACTION表</span></h4><p><span>告诉分析引擎：在栈顶状态为k, 当前输入符号是 a 时做什么</span></p><figure><table><thead><tr><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>ACTION [k,a]=si</span></td><td><span>Shift：状态 i 移进状态栈顶，a移进符号栈顶</span></td></tr><tr><td><span>ACTION [k,a]=rj</span></td><td><span>Reduce：按第 j 条产生式A→β归约,两栈顶各弹出</span><span>|</span><span>β</span><span>|</span><span>个元素</span></td></tr><tr><td><span>ACTION [k,a]=acc</span></td><td><span>Accept ：分析完成</span></td></tr><tr><td><span>ACTION [k,a]=err</span></td><td><span>Error ：发现错误 （常标为空白）</span></td></tr></tbody></table></figure><h4><a name="goto表" class="md-header-anchor"></a><span>GOTO表</span></h4><p><span>GOTO[i,A]=j  告诉分析引擎：在依产生式 A→β 归约依Action完成动作后（两栈顶各弹出|β|个元素），栈顶状态为i 时，要将新状态 j 移进状态栈顶（同时： A 移入符号栈顶）</span></p><p><mark><span>即：在栈顶状态为k, 当前输入符号是 A时做什么。GOTO表就一个shift操作</span></mark></p><h4><a name="lr0）分析表的构造" class="md-header-anchor"></a><span>LR（0）分析表的构造</span></h4><p><img src="笔记整理.assets/image-20210109233547974.png" referrerpolicy="no-referrer" alt="image-20210109233547974"></p><p><span>LR（0）分析表的构造举例</span></p><p><img src="笔记整理.assets/image-20210110111157195.png" referrerpolicy="no-referrer" alt="image-20210110111157195"></p><p>&nbsp;</p><h2><a name="5-对输入串的分析过程" class="md-header-anchor"></a><span>5. 对输入串的分析过程</span></h2><p><span>LR分析</span></p><p><span>带符号栈的 LR 分析算法</span></p><p><img src="笔记整理.assets/image-20210109223909375.png" referrerpolicy="no-referrer" alt="image-20210109223909375"></p><h1><a name="slr1" class="md-header-anchor"></a><span>SLR(1)</span></h1><h2><a name="lr0）分析的局限性" class="md-header-anchor"></a><span>LR（0）分析的局限性</span></h2><p><img src="笔记整理.assets/image-20210110111243266.png" referrerpolicy="no-referrer" alt="image-20210110111243266"></p><p><span>发现两个状态（项目集）存在移进-归约冲突</span></p><p><img src="笔记整理.assets/image-20210110111338142.png" referrerpolicy="no-referrer" alt="image-20210110111338142"></p><p><span>向前查看一个符号可解决冲突</span></p><p><img src="笔记整理.assets/image-20210110111348580.png" referrerpolicy="no-referrer" alt="image-20210110111348580"></p><h2><a name="slr1）分析思想" class="md-header-anchor"></a><span>SLR（1）分析思想</span></h2><ul><li><span>向前查看一个符号来改进对LR（0）状态（项目集）中移进-归约和归约-归约冲突的解决</span></li><li><span>根据下一个输入符号是否属于要归约的非终结符的Follow 集来决定是否进行归约</span></li><li><span>如果LR（0）状态（项目集）中的所有归约项中要归约的非终结符的 Follow 集互不相交，则可以解决归约-归约冲突</span></li><li><span>如果LR（0）状态（项目集）中的所有归约项中要归约的非终结符的 Follow 集与所有移进项目要移进的符号集互不相交，则可以解决移进-归约冲突</span></li><li><span>SLR（0）分析表的构造也基于LR（0）FSM</span></li><li><span>只需对 LR（0）分析表进行简单修改使得归约表项只适用于相应非终结符Follow 集中的输入符号</span></li></ul><h2><a name="slr1）分析表的构造" class="md-header-anchor"></a><span>SLR（1）分析表的构造</span></h2><p><img src="笔记整理.assets/image-20210110113757164.png" referrerpolicy="no-referrer" alt="image-20210110113757164"></p><p><img src="笔记整理.assets/image-20210110111338142.png" referrerpolicy="no-referrer" alt="image-2021011011133814">
+<img src="笔记整理.assets/image-20210110113606929.png" referrerpolicy="no-referrer" alt="image-20210110113606929"></p><h2><a name="slr1）文法" class="md-header-anchor"></a><span>SLR（1）文法</span></h2><p><img src="笔记整理.assets/image-20210110113632717.png" referrerpolicy="no-referrer" alt="image-20210110113632717"></p><h2><a name="比较-lr0）表和-slr1）表" class="md-header-anchor"></a><span>比较 LR（0）表和 SLR（1）表</span></h2><p><span>在 LR（0）表的 ACTION 表中，归约表项总是整行出现的，即一个归约对于所有输入符号都适用; 不会既有移进又有归约</span>
+<span>而在 SLR（1）表的ACTION 表中。归约表项只适用于相应非终结符Follow 集中的输入符号;  可以既有移进又有归约</span></p><h1><a name="lr1）" class="md-header-anchor"></a><span>LR（1）</span></h1><h2><a name="lr1）项目" class="md-header-anchor"></a><span>LR（1）项目</span></h2><p><img src="笔记整理.assets/image-20210115145347193.png" referrerpolicy="no-referrer" alt="image-20210115145347193"></p><p><img src="笔记整理.assets/image-20210115145415498.png" referrerpolicy="no-referrer" alt="image-20210115145415498"></p><h2><a name="lr1）fsm" class="md-header-anchor"></a><span>LR（1）FSM</span></h2><p><img src="笔记整理.assets/image-20210115145445428.png" referrerpolicy="no-referrer" alt="image-20210115145445428"></p><p>&nbsp;</p><h3><a name="lr1）fsm的构造" class="md-header-anchor"></a><span>LR（1）FSM的构造</span></h3><p><img src="笔记整理.assets/image-20210115145457839.png" referrerpolicy="no-referrer" alt="image-20210115145457839"></p><h3><a name="lr1）fsm的初态" class="md-header-anchor"></a><span>LR（1）FSM的初态</span></h3><p><img src="笔记整理.assets/image-20210115145514768.png" referrerpolicy="no-referrer" alt="image-20210115145514768"></p><h3><a name="lr1）fsm的状态转移函数" class="md-header-anchor"></a><span>LR（1）FSM的状态转移函数</span></h3><p><img src="笔记整理.assets/image-20210115145533237.png" referrerpolicy="no-referrer" alt="image-20210115145533237"></p><h3><a name="计算-lr1）项目集规范族" class="md-header-anchor"></a><span>计算 LR（1）项目集规范族</span></h3><p><img src="笔记整理.assets/image-20210115145542366.png" referrerpolicy="no-referrer" alt="image-20210115145542366"></p><h3><a name="lr1）fsm的构造举例" class="md-header-anchor"></a><span>LR（1）FSM的构造举例</span></h3><p><img src="笔记整理.assets/image-20210115145554611.png" referrerpolicy="no-referrer" alt="image-20210115145554611"></p><h2><a name="lr1）分析表的构造" class="md-header-anchor"></a><span>LR（1）分析表的构造</span></h2><p><img src="笔记整理.assets/image-20210115145616167.png" referrerpolicy="no-referrer" alt="image-20210115145616167"></p><h3><a name="lr1）分析表的构造举例" class="md-header-anchor"></a><span>LR（1）分析表的构造举例</span></h3><p><img src="笔记整理.assets/image-20210115145624834.png" referrerpolicy="no-referrer" alt="image-20210115145624834"></p><h2><a name="lr1）文法" class="md-header-anchor"></a><span>LR（1）文法</span></h2><p><img src="笔记整理.assets/image-20210115145633767.png" referrerpolicy="no-referrer" alt="image-20210115145633767"></p><h1><a name="语义分析中间代码" class="md-header-anchor"></a><span>语义分析、中间代码</span></h1><h2><a name="0-语法制导的语义计算基础不在考点前导概念）" class="md-header-anchor"></a><span>0. 语法制导的语义计算基础（不在考点，前导概念）</span></h2><h3><a name="概念" class="md-header-anchor"></a><span>概念</span></h3><ul><li><p><span>属性文法（Attribute Grammar）在</span><mark><span>上下文无关文法</span></mark><span>的基础上进行如下扩展</span></p><ul><li><span>为每个文法符号关联多个属性（Attribute）</span></li><li><span>为文法的每个产生式关联一个语义规则集合或称为语义动作。</span></li></ul></li><li><p><span>属性</span></p><ul><li><span>属性（Attribute）可用来</span><mark><span>刻画</span></mark><span>一个</span><mark><span>文法符号</span></mark><span>的任何我们所关心的</span><mark><span>特性</span></mark><span>，如：符号的值，符号的名字串，符号的类型，符号的偏移地址，符号被赋予的寄存器，代码片断，等等…</span></li></ul></li><li><p><span>记号</span></p><ul><li><span>文法符号 X 关联属性 a 的属性值可通过 X.a 访问</span></li></ul></li><li><p><span>语义规则（Semantic Rule）</span></p><ul><li><span>在属性文法中，每个产生式 </span><span class='math-in-toc'>$A \rightarrow \alpha$</span><span> 都关联一个</span><mark><span>语义规则</span></mark><span>的集合，用于描述如何计算当前产生式中文法符号的</span><mark><span>属性值或附加的语义动作</span></mark></li></ul></li><li><p><span>属性文法中允许如下语义规则</span></p><ul><li><mark><span>复写</span></mark><span>（copy）规则，形如X.a := Y.b</span></li><li><span>基于</span><mark><span>语义函数</span></mark><span>（semantic function）的规则，形如</span>
+<span>     b:=f(c1, c2, …, ck)  或 f(c1, c2, …, ck) </span>
+<span> 其中，b,c1, c2, …, ck是该产生式中文法符号的属性</span></li></ul></li><li><p><span>综合属性（synthesized attribute）    </span></p><ul><li><p><span>用于</span><mark><span>“自下而上”</span></mark><span>传递信息</span></p><ul><li><span>对关联于产生式 </span><span class='math-in-toc'>$A \rightarrow \alpha$</span><span> 的语义规则 b:=f(c1, c2, …, ck) ，如果 b 是 A 的</span><mark><span>某个属性</span></mark><span>, 则称 b 是 A 的一个</span><mark><span>综合属性</span></mark></li></ul></li><li><p><span>综合属性的例子</span></p><p><img src="笔记整理.assets/image-20210110162806383.png" referrerpolicy="no-referrer" alt="image-20210110162806383"></p></li></ul></li><li><p><span>继承属性（inherited  attribute）</span></p><ul><li><p><span>用于</span><mark><span>“自上而下”</span></mark></p></li><li><p><span>传递信息对关联于产生式</span><span class='math-in-toc'>$A \rightarrow \alpha$</span><span> 的语义规则 b:=f(c1, c2, …, ck) ，如果 b 是</span><mark><span>产生式右部某个文法符号 X 的某个属性</span></mark><span>，则称 b 是文法符号 X 的一个</span><mark><span>继承属性</span></mark></p></li><li><p><span>继承属性的例子</span></p><p><span>继承属性代表自上而下传递的信息</span></p><p><img src="笔记整理.assets/image-20210110163036375.png" referrerpolicy="no-referrer" alt="image-20210110163036375"></p></li></ul></li></ul><h3><a name="基于属性文法的语义计算" class="md-header-anchor"></a><span>基于属性文法的语义计算</span></h3><h4><a name="s-属性文法" class="md-header-anchor"></a><span>S-属性文法</span></h4><ul><li><span>只包含综合属性</span></li><li><span>可以自下而上计算分析树中节点的属性</span></li></ul><h4><a name="l-属性文法" class="md-header-anchor"></a><span>L-属性文法</span></h4><p><img src="笔记整理.assets/image-20210110170230987.png" referrerpolicy="no-referrer" alt="image-20210110170230987"></p><h4><a name="l-属性文法的语义计算" class="md-header-anchor"></a><span>L-属性文法的语义计算</span></h4><ul><li><p><span>采用自上而下的方式可以较方便地进行</span></p></li><li><p><span>可以采用下列基于深度优先后序遍历的算法</span></p><p><img src="笔记整理.assets/image-20210110170413282.png" referrerpolicy="no-referrer" alt="image-20210110170413282"></p></li><li><p><span>该算法</span><mark><span>与自上而下预测分析过程对应</span></mark><span>. 因此,基于 </span><mark><span>LL(1)</span></mark><span> 文法的 L-属性文法可以采用这种方法进行语义计算.随后将结合翻译模式的进一步讨论分析程序的构造）</span></p></li></ul><p><span>采用基于</span><mark><span>深度优先后序遍历</span></mark><span>算法进行 L-属性文法的语义计算举例</span></p><p><img src="笔记整理.assets/image-20210110170550355.png" referrerpolicy="no-referrer" alt="image-20210110170550355"></p><h3><a name="翻译模式translation-scheme）概念" class="md-header-anchor"></a><span>翻译模式（Translation Scheme）概念</span></h3><ul><li><span>适合语法制导语义计算的另一种描述形式 </span></li><li><span>可以体现一种合理调用语义动作的翻译算法</span></li><li><span>形式上类似于属性文法，但</span><mark><span>允许由{ }括起来的语义规则集合出现在产生式右端的任何位置</span></mark><span>. 这样做的好处是可以显式地</span><mark><span>表达动作和属性计算的次序</span></mark><span>，而在前述的属性文法中不体现这种次序</span></li></ul><h3><a name="受限的翻译模式" class="md-header-anchor"></a><span>受限的翻译模式</span></h3><ul><li><p><span>在设计翻译模式时，必须作某些</span><mark><span>限制</span></mark><span>，以</span><mark><span>确保每个属性值在被访问到的时候已经存在</span></mark></p></li><li><p><span>本讲仅讨论</span><mark><span>两类受限</span></mark><span>的翻译模式</span></p><ul><li><p><mark><span>S-翻译模式</span></mark><span>，为</span><mark><span>仅需要综合属性的情形</span></mark><span>，创建一个语义规则集合，放在相应</span><mark><span>产生式右端的末尾</span></mark><span>，把属性的计算规则加入其中即可。</span><mark><span>该模式类似与S-属性文法，不重复讨论</span></mark><span>。</span></p></li><li><p><mark><span>L-翻译模式</span></mark><span>，对于既</span><mark><span>包含继承属性</span></mark><span>又包含</span><mark><span>综合属性</span></mark><span>的情形，但需要满足：</span></p><ul><li><span>（1）产生式右端某个符号</span><mark><span>继承属性</span></mark><span>的计算必须</span><mark><span>位于该符号之前</span></mark><span>，其语义动作不访问位于它右边符号的属性，</span><mark><span>只依赖于该符号左边符号的属性（对于产生式左部的符号，只能是继承属性）</span></mark><span>；</span></li><li><span>（2）产生式左部非终结符的</span><mark><span>综合属性</span></mark><span>的计算只能在所用到的属性都已计算出来之后进行，通常将相应的语义动作置于</span><mark><span>产生式的尾部</span></mark><span>。 </span></li></ul></li></ul></li></ul><p><span>翻译模式举例</span></p><p><span>定点二进制小数转换为十进制小数</span></p><p><img src="笔记整理.assets/image-20210110165727098.png" referrerpolicy="no-referrer" alt="image-20210110165727098"></p><h2><a name="1-声明语句的属性文法" class="md-header-anchor"></a><span>1. 声明语句的属性文法</span></h2><h3><a name="类型表达式type-expressions）" class="md-header-anchor"></a><span>类型表达式（type expressions）</span></h3><p><span>  由基本类型，类型名字，类型变量，及类型构造子 （type constructor）归纳定义的表达式</span></p><p><span>分四类定义</span></p><ul><li><p><span>基本数据类型表达式</span></p><ul><li><p><span>纯量类型表达式：bool, int, real</span></p></li><li><p><span>有界数组类型表达式：array(I,T)</span></p><p><span>T∈{ bool, int, real }；I 代表一个整数区间，如 1..10</span></p></li><li><p><span>指针数据类型表达式：pointer(T)</span></p><p><span>T∈{ bool, int, real }</span></p></li></ul></li><li><p><span>积类型表达式</span></p><ul><li><p><span>&lt;T1, T2, …, Tn&gt;</span></p><p><span>T1, T2, …, Tn 为上述数据类型表达式；若n=0，则表示为 &lt; &gt;</span></p></li></ul></li><li><p><span>过程类型表达式</span></p><ul><li><span>fun（T）T 是上述积类型表达式</span></li></ul></li><li><p><span>专用类型表达式</span></p><ul><li><span>type_error    专用于有类型错误的程序单元</span></li><li><span>ok                  专用于没有类型错误的程序单元</span></li></ul></li></ul><h3><a name="-语义函数" class="md-header-anchor"></a><span>语义函数</span></h3><figure><table><thead><tr><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>make_product_3 (V1.type, T.type, L.num)</span></td><td><span>生成积类型表达式&lt; t1,…,tm,T.type,…,T.type&gt;T.type共L.num个，V1.type=&lt;t1,…,tm&gt; 。</span></td></tr><tr><td><span>num.lexval</span></td><td><span>为词法分析返回的单词属性值</span></td></tr><tr><td><span>id.entry</span></td><td><span>指向当前标识符对应于符号表中的表项</span></td></tr><tr><td><span>addtype(id.entry,L.in)</span></td><td><span>表示将属性值 L.in 填入当前标识符在符号表表项中的type 域（ 记录标识符的类型）</span></td></tr><tr><td><span>id.name</span></td><td><span>为当前标识符的名字；</span></td></tr><tr><td><span>lookup_type(id.name)</span></td><td><span>从符号表中查找名字为 id.name 的标识符所对应的表项中 type 域的内容，若未查到该表项或表项中的 type 域无定义，则返回 nil。</span></td></tr><tr><td><span>type_error</span></td><td><span>专用于有类型错误的程序单元</span></td></tr><tr><td><span>ok</span></td><td><span>专用于没有类型错误的程序单元</span></td></tr><tr><td><span>match（ fun (type1)， type2)</span></td><td><span>返回 true，当且仅当 type1， type2 是完全相同的积类型表达式</span></td></tr><tr><td><span>id.place</span></td><td><span>id 对应的存储位置</span></td></tr><tr><td><span>E.place</span></td><td><span>用来存放 E 的值的存储位置</span></td></tr><tr><td><span>E.code</span></td><td><span>E 求值的 TAC 语句序列(可不止一条四元式)</span></td></tr><tr><td><span>S.code</span></td><td><span>对应于 S 的 TAC 语句序列</span></td></tr><tr><td><span>newtemp</span></td><td><span>在符号表中新建一个名字，返回该名字存储位置</span></td></tr><tr><td><span>newlabel</span></td><td><span>返回一个新的语句标号</span></td></tr><tr><td><span>gen</span></td><td><span>生成一条 TAC 语句</span></td></tr><tr><td><span>||</span></td><td><span>TAC 语句序列之间的链接运算</span></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="类型检查程序的设计" class="md-header-anchor"></a><span>类型检查程序的设计</span></h3><p><span>语法制导的方法</span></p><ul><li><span>将类型表达式作为属性值赋给程序各个部分</span></li><li><span>设计恰当的翻译模式</span></li><li><span>可实现相应语言的一个类型系统</span></li></ul><h3><a name="语法制导的类型检查程序--------举例" class="md-header-anchor"></a><span>语法制导的类型检查程序 —— 举例</span></h3><h4><a name="处理声明的翻译模式" class="md-header-anchor"></a><span>处理声明的翻译模式</span></h4><p><img src="笔记整理.assets/image-20210110172534352.png" referrerpolicy="no-referrer" alt="image-20210110172534352"></p><p><img src="笔记整理.assets/image-20210110174900720.png" referrerpolicy="no-referrer" alt="image-20210110174900720"></p><h4><a name="处理表达式的翻译模式不在考点）" class="md-header-anchor"></a><span>处理表达式的翻译模式（不在考点）</span></h4><p><img src="笔记整理.assets/image-20210110173013237.png" referrerpolicy="no-referrer" alt="image-20210110173013237"></p><p><img src="笔记整理.assets/image-20210110173023975.png" referrerpolicy="no-referrer" alt="image-20210110173023975"></p><h4><a name="处理语句过程声明及程序的翻译模式不在考点）" class="md-header-anchor"></a><span>处理语句、过程声明及程序的翻译模式（不在考点）</span></h4><p><img src="笔记整理.assets/image-20210110173103986.png" referrerpolicy="no-referrer" alt="image-20210110173103986"></p><p><img src="笔记整理.assets/image-20210110173124815.png" referrerpolicy="no-referrer" alt="image-20210110173124815"></p><h2><a name="2-写出四元式序列布尔表达式短路求值）" class="md-header-anchor"></a><span>2. 写出四元式序列（布尔表达式，短路求值）</span></h2><h3><a name="布尔表达式的语法制导翻译" class="md-header-anchor"></a><span>布尔表达式的语法制导翻译</span></h3><p><img src="笔记整理.assets/image-20210110210127385.png" referrerpolicy="no-referrer" alt="image-20210110210127385"></p><h3><a name="直接对布尔表达式求值" class="md-header-anchor"></a><span>直接对布尔表达式求值</span></h3><p><img src="笔记整理.assets/image-20210110210136859.png" referrerpolicy="no-referrer" alt="image-20210110210136859"></p><h3><a name="翻译流程控制布尔表达式至短路代码l-翻译模式）" class="md-header-anchor"></a><span>翻译流程控制布尔表达式至短路代码（L-翻译模式）</span></h3><p><img src="笔记整理.assets/image-20210110210149809.png" referrerpolicy="no-referrer" alt="image-20210110210149809"></p><p><span>语法分析树</span></p><p><img src="笔记整理.assets/image-20210110210305133.png" referrerpolicy="no-referrer" alt="image-20210110210305133"></p><p><span>通过控制流体现布尔表达式的语义</span></p><p><img src="笔记整理.assets/image-20210110210320496.png" referrerpolicy="no-referrer" alt="image-20210110210320496"></p><h1><a name="运行时存储组织" class="md-header-anchor"></a><span>运行时存储组织</span></h1><h2><a name="1-栈区活动记录静态链和动态链" class="md-header-anchor"></a><span>1. 栈区、活动记录、静态链和动态链</span></h2><h3><a name="栈式存储分配" class="md-header-anchor"></a><span>栈式存储分配</span></h3><ul><li><p><span>用于有效实现可动态嵌套的程序结构</span></p><ul><li><span>如实现过程/函数，递归，块层次结构</span></li><li><span>比较：静态分配不宜实现递归过程/函数</span></li></ul></li><li><p><span>运行的时候才能确定数据对象的存储分配结果</span></p></li><li><p><span>过程/函数的实现中，运行栈中的数据单元是活动记录（activation record，后面专门讨论)</span></p><ul><li><span>运行时每当进入一个过程/函数，就在栈顶为该过程/函数分配存放活动记录的数据空间；工作完毕返回时，栈顶的活动记录数据空间随即释放</span></li><li><span>在过程/函数的某一次执行中，其活动记录中会存放生存期在该过程/函数本次执行中的数据对象，以及必要的控制信息单元。</span></li><li><span>在编译期间， 过程/ 函数以及嵌套程序块的活动记录大小（最大值） 应该是可以确定的，如果不满足则应该使用堆式存储管理</span></li></ul></li></ul><h3><a name="活动记录" class="md-header-anchor"></a><span>活动记录</span></h3><p><span>函数/过程调用或返回时，在运行栈上创建或从运行栈上消去的栈帧（frame）</span></p><p><span>包含局部变量，函数实参，临时值（用于表达式计算的中间单元）等数据信息以及必要的控制信息</span></p><p><img src="笔记整理.assets/image-20210114213106246.png" referrerpolicy="no-referrer" alt="image-20210114213106246"></p><p><span>过程活动记录的栈式分配举例</span></p><p><img src="笔记整理.assets/image-20210114213114752.png" referrerpolicy="no-referrer" alt="image-20210114213114752"></p><p><span>典型的过程活动记录结构</span></p><p><img src="笔记整理.assets/image-20210114213206427.png" referrerpolicy="no-referrer" alt="image-20210114213206427"></p><p><span>活动过程记录举例</span></p><p><img src="笔记整理.assets/image-20210114213225004.png" referrerpolicy="no-referrer" alt="image-20210114213225004"></p><h3><a name="静态链" class="md-header-anchor"></a><span>静态链</span></h3><p><span>Display 表的方法要用到多个存储单元或多个寄存器。</span></p><p><span>一种可选的方法是采用静态链，也称访问链、存取链</span></p><p><span>所有活动记录都增加一个静态链（如在offset 为 0 处）的域，指向定义该过程的直接外过程（或主程序）运行时最新的活动记录</span></p><p><span>过程返回时， 当前活动记录要被撤销，为回（ unwind）到调用过程的活动记录（恢复FP），需要在被调用过程的活动记录中有这样一个域，即动态链，指向该调用过程的活动记录（的基址），也称控制链</span></p><p><span>个人理解：静态链指向定义该过程的外过程，动态链指向调用该过程的外过程</span></p><h4><a name="静态链动态链举例" class="md-header-anchor"></a><span>静态链动态链举例</span></h4><p><img src="笔记整理.assets/image-20210115152600104.png" referrerpolicy="no-referrer" alt="image-20210115152600104"></p><h1><a name="代码生成" class="md-header-anchor"></a><span>代码生成</span></h1><h2><a name="1--支配节点集回边自然循环" class="md-header-anchor"></a><span>1.  支配节点集、回边、自然循环</span></h2><h3><a name="基本块basic-block）" class="md-header-anchor"></a><span>基本块（basic block）</span></h3><p><span>概念</span></p><ul><li><span>程序中一个顺序执行的语句序列</span></li><li><span>只有一个入口语句和一个出口语句</span></li><li><span>除入口语句外其他语句均不可以带标号</span></li><li><span>除出口语句外其他语句均不可能是转移或停语句</span></li></ul><p><span>入口语句</span></p><ul><li><span>程序的第一个语句</span></li><li><span>条件转移语句或无条件转移语句的转移目标语句</span></li><li><span>紧跟在条件转移语句后面的语句</span></li></ul><p><span>划分基本块的算法</span></p><ul><li><p><span>针对三地址码（TAC）</span></p></li><li><p><span>步骤</span></p><ul><li><span>出 TAC 程序之中各个基本块的入口语句 </span></li><li><span>对每一入口语句，构造其所属的基本块。它是由该语句到下一入口语句（不包括下一入口语句），或到一转移语句（包括该转移语句），或到一停语句（包括该停语句）之间的语句序列组成的</span></li><li><span>凡未被纳入某一基本块的语句，都是程序中控制流程无法到达的语句，因而也是不会被执行到的语句，可以把它们删除</span></li></ul></li><li><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210114222417291.png" referrerpolicy="no-referrer" alt="image-20210114222417291"></p></li></ul><h3><a name="流图flow-graph）" class="md-header-anchor"></a><span>流图（flow graph）</span></h3><p><span>概念</span></p><ul><li><span>可以为构成程序的基本块增加控制流信息，方法是构造一个有向图，称之为流图或控制流图（CFG，Control-Flow Graph）</span></li></ul><p><span>流图以基本块集为结点集；第一个结点为含有程序第一条语句的基本块；从基本块 i 到基本块 j 之间存在有向边当且仅当</span></p><ul><li><span>基本块 j 在程序的位置紧跟在 i 后,且 i 的出口语句不是转移 (可为条件转移)语句、停语句或者返回语句；</span></li><li><span>或者i 的出口是 goto(S) 或 if …goto(S), 而 (S) 是 j 的入口语句 </span></li></ul><p><span>举例</span></p><p><img src="笔记整理.assets/image-20210114222714829.png" referrerpolicy="no-referrer" alt="image-20210114222714829"></p><h3><a name="循环loop）" class="md-header-anchor"></a><span>循环（loop）</span></h3><h4><a name="支配结点集dominators）" class="md-header-anchor"></a><span>支配结点集（dominators）</span></h4><p><span>如果从流图的首结点出发,到达 n 的任意通路都要经过 m，则称 m 支配 n, 或 m 是 n 的支配结点，记为 m  DOM n(∀a. a DOM a)</span></p><p><span>结点n 的所有支配结点的集合, 称为结点 n 的支配结点集,记为D(n)</span></p><p><mark><span>注意：支配结点也称必经节点，支配节点集也称必经节点集</span></mark><span> </span></p><p><span> 支配结点集举例</span></p><p><img src="笔记整理.assets/image-20210114222832927.png" referrerpolicy="no-referrer" alt="image-20210114222832927"></p><h4><a name="自然循环natural-loop）" class="md-header-anchor"></a><span>自然循环（natural loop）</span></h4><p><span>假设 n→d 是流图中的一条有向边，如果 d DOM n 则称 n→d 是流图中的一条回边（back edge）</span></p><p><span>有向边 n→d 是回边，它对应的自然循环是由结点 d ，结点 n 以及有通路到达 n 而该通路不经过 d 的所有结点组成，并且 d 是该循环的唯一入口结点</span></p><p><span>同时，因 d 是 n 的支配结点，所以 d 必可达该循环中任意结点</span></p><p><span>注：流图中的任何结点都是从首结点可达的</span></p><p><span>自然循环举例</span></p><p><img src="笔记整理.assets/image-20210114222835236.png" referrerpolicy="no-referrer" alt="image-20210114222835236"></p><p>&nbsp;</p></div>
+</body>
+</html>
